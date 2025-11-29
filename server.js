@@ -122,7 +122,7 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: ['http://localhost:3007', 'http://192.168.1.6:3007'],
+  origin: ['http://localhost:3007', 'http://192.168.1.6:3007', 'http://52.66.216.221:3007'],
   credentials: true,
 }));
 app.use(express.json({ limit: '50mb' }));
@@ -904,6 +904,6 @@ function generateStaticHTML(items, config, logoPath, heroPath, showWatermark) {
 </html>`;
 }
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running at http://0.0.0.0:${PORT}`);
 });
