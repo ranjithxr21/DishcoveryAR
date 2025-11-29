@@ -122,7 +122,7 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: ['http://localhost:3007', 'http://192.168.1.6:3007', 'http://52.66.216.221:3007'],
+  origin: ['http://localhost:3007', 'http://192.168.1.6:3007', 'http://52.66.216.221:3007', 'http://52.66.216.221:3008'],
   credentials: true,
 }));
 app.use(express.json({ limit: '50mb' }));
