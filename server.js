@@ -22,7 +22,7 @@ const gltfPipeline = require('gltf-pipeline');
 const { processGlb } = gltfPipeline;
 
 // --- CONFIGURATION ---
-const PORT = 8080;
+const PORT = 3006;
 const UPLOAD_DIR = 'uploads';
 const DB_FILE = 'data.db.json';
 const SESSION_SECRET = crypto.randomBytes(32).toString('hex');
@@ -122,7 +122,7 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: 'http://0.0.0.0:3001',
+  origin: ['http://localhost:3007', 'http://192.168.1.6:3007'],
   credentials: true,
 }));
 app.use(express.json({ limit: '50mb' }));
