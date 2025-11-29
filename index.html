@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Dishcovery ARAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          extend: {
+            colors: {
+              // Enterprise Palette (Slate & Indigo)
+              primary: {
+                50: '#eef2ff',
+                100: '#e0e7ff',
+                200: '#c7d2fe',
+                300: '#a5b4fc',
+                400: '#818cf8',
+                500: '#6366f1', // Main Action
+                600: '#4f46e5', // Hover Action
+                700: '#4338ca',
+                800: '#3730a3',
+                900: '#312e81',
+              },
+              slate: {
+                850: '#1e293b', // Darker sidebar
+                900: '#0f172a', // Deepest background
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.3s ease-out',
+              'slide-up': 'slideUp 0.4s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(10px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        /* Default to light mode for SaaS pages */
+        background-color: #f8fafc; 
+        color: #0f172a;
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Custom Scrollbar for Dashboard */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      model-viewer {
+        width: 100%;
+        height: 100%;
+        --poster-color: transparent;
+      }
+      .mindar-ui-overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: transparent;
+        z-index: 2;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "three": "https://unpkg.com/three@0.147.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.147.0/examples/jsm/",
+    "mind-ar/": "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "express": "https://aistudiocdn.com/express@^5.1.0",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "url": "https://aistudiocdn.com/url@^0.11.4",
+    "multer": "https://aistudiocdn.com/multer@^2.0.2",
+    "cors": "https://aistudiocdn.com/cors@^2.8.5",
+    "fs": "https://aistudiocdn.com/fs@^0.0.1-security",
+    "better-sqlite3": "https://aistudiocdn.com/better-sqlite3@^12.4.6",
+    "archiver": "https://aistudiocdn.com/archiver@^7.0.1",
+    "fs-extra": "https://aistudiocdn.com/fs-extra@^11.3.2",
+    "gltf-pipeline": "https://aistudiocdn.com/gltf-pipeline@^4.3.0",
+    "module": "https://aistudiocdn.com/module@^2.0.0",
+    "sharp": "https://aistudiocdn.com/sharp@^0.34.5",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "crypto": "https://aistudiocdn.com/crypto@^1.0.1",
+    "bcrypt": "https://aistudiocdn.com/bcrypt@^6.0.0",
+    "connect-sqlite3": "https://aistudiocdn.com/connect-sqlite3@^0.9.16",
+    "express-session": "https://aistudiocdn.com/express-session@^1.18.2",
+    "bcryptjs": "https://aistudiocdn.com/bcryptjs@^3.0.3",
+    "lowdb/": "https://aistudiocdn.com/lowdb@^7.0.1/",
+    "lowdb": "https://aistudiocdn.com/lowdb@^7.0.1",
+    "session-file-store": "https://aistudiocdn.com/session-file-store@^1.5.0",
+    "helmet": "https://aistudiocdn.com/helmet@^8.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "Dishcovery",
+  "description": "An augmented reality food menu application allowing customers to visualize dishes in their environment, powered by Gemini for content generation.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

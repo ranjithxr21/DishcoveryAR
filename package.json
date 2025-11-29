@@ -1,0 +1,43 @@
+{
+  "name": "gastrovision-ar",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "node server.js",
+    "start": "concurrently -k \"npm run server\" \"npm run dev\"",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "fs-extra": "^11.2.0",
+    "gltf-pipeline": "^4.1.0",
+    "helmet": "^7.1.0",
+    "lowdb": "^7.0.1",
+    "lucide-react": "^0.344.0",
+    "multer": "^1.4.5-lts.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "session-file-store": "^1.5.0",
+    "sharp": "^0.33.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express-session": "^1.18.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/session-file-store": "^1.2.5",
+    "@types/uuid": "^9.0.8",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1"
+  }
+}
