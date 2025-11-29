@@ -59,7 +59,7 @@ Use these credentials to log in. From the Super Admin dashboard, you can manage 
 
 ### Data Storage
 
-All application data (users, menu items, etc.) is stored in a file named `data.db.json` in the project's root directory. Uploaded assets like images and 3D models are stored in the `/uploads` folder.
+All application data (users, menu items, etc.) is stored in a file named `data.db` in the project's root directory. Uploaded assets like images and 3D models are stored in the `/uploads` folder.
 
 ---
 

@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "superadmin@example.com",
+      "password": "$2a$10$QhfeydAZLhA2byQBkReXIu6e5SpYhoes7yqvi/hmz9ljcRUcXLhLS",
+      "role": "superadmin",
+      "plan": "paid"
+    },
+    {
+      "id": 2,
+      "email": "demo@gastrovision.com",
+      "password": "$2a$10$yoFSi5fRbSIoaTXzcQ.UTeiPnhsciTCtGwuEQjQ3LZ.Ru7zUrHnGa",
+      "role": "admin",
+      "plan": "free",
+      "profile": {
+        "name": "Dishcovery ARDemo Bistro",
+        "address": "123 Innovation Dr, Tech City",
+        "website": "https://dishcovery.com",
+        "instagram": "https://instagram.com/dishcovery",
+        "ambienceUrls": []
+      }
+    }
+  ],
+  "menu_items": [],
+  "library_items": [],
+  "settings": {
+    "plans": {
+      "free": {
+        "maxMenuItems": 10,
+        "maxUploadSizeMB": 15,
+        "canRemoveWatermark": false
+      },
+      "paid": {
+        "maxMenuItems": 1000,
+        "maxUploadSizeMB": 100,
+        "canRemoveWatermark": true
+      }
+    }
+  }
+}

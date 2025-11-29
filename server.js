@@ -24,7 +24,7 @@ const { processGlb } = gltfPipeline;
 // --- CONFIGURATION ---
 const PORT = 3006;
 const UPLOAD_DIR = 'uploads';
-const DB_FILE = 'data.db.json';
+const DB_FILE = 'data.db';
 const SESSION_SECRET = crypto.randomBytes(32).toString('hex');
 
 // --- SETUP ---
@@ -173,6 +173,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const optimizeGLB = async (filePath) => {
+    // Create a promise that rejects after a timeout
+    const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('GLB optimization timeout')), 30000)
+    );
+    
     try {
         const glb = fs.readFileSync(filePath);
         const options = {
@@ -180,15 +185,27 @@ const optimizeGLB = async (filePath) => {
                 compressionLevel: 7,
             },
         };
-        const results = await processGlb(glb, options);
+        
+        // Race the optimization against the timeout
+        const results = await Promise.race([
+            processGlb(glb, options),
+            timeoutPromise
+        ]);
+        
         fs.writeFileSync(filePath, results.glb);
         console.log(`Optimized GLB: ${filePath}`);
     } catch (err) {
         console.error("Optimization failed:", err);
+        // Continue processing even if optimization fails
     }
 };
 
 const watermarkImage = async (imagePath) => {
+    // Create a promise that rejects after a timeout
+    const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Watermarking timeout')), 30000)
+    );
+    
     try {
         // High-contrast SVG watermark with background
         const watermarkSvg = `
@@ -202,23 +219,36 @@ const watermarkImage = async (imagePath) => {
         const watermarkBuffer = Buffer.from(watermarkSvg);
 
         const image = sharp(imagePath);
-        const metadata = await image.metadata();
+        const metadata = await Promise.race([
+            image.metadata(),
+            timeoutPromise
+        ]);
         
         // Only watermark if image is large enough
         if (metadata.width > 300) {
-            const buffer = await image
-                .composite([{
+            const buffer = await Promise.race([
+                image.composite([{
                     input: watermarkBuffer,
                     gravity: 'southeast',
                     blend: 'over'
-                }])
-                .toBuffer();
+                }]).toBuffer(),
+                timeoutPromise
+            ]);
             return buffer;
         }
-        return await image.toBuffer();
+        return await Promise.race([
+            image.toBuffer(),
+            timeoutPromise
+        ]);
     } catch (err) {
         console.error("Watermarking failed", err);
-        return fs.readFileSync(imagePath); // Return original on error
+        // Try to return the original image even if watermarking fails
+        try {
+            return fs.readFileSync(imagePath);
+        } catch (readErr) {
+            console.error("Failed to read original image", readErr);
+            throw readErr;
+        }
     }
 };
 
