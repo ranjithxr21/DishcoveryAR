@@ -40,8 +40,8 @@ Use the unified command to start both the **Backend API** and the **Frontend** d
 npm start
 ```
 
-- **Frontend**: `http://localhost:5173`
-- **Backend API**: `http://localhost:3000`
+- **Frontend**: `http://0.0.0.0:3001`
+- **Backend API**: `http://0.0.0.0:8080`
 
 ### First Time Login (Super Admin)
 

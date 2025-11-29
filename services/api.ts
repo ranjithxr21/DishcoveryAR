@@ -3,7 +3,7 @@ import { MenuItem, LibraryItem, User, ExportConfig, SystemSettings, RestaurantPr
 import * as db from '../utils/db'; // Mock DB only used by mock functions
 
 let dynamicMockMode = false;
-const API_URL = 'http://localhost:3000/api'; 
+const API_URL = 'http://0.0.0.0:8080/api'; 
 
 // Wrapper for fetch to include credentials
 const fetchWithCreds = (url: string, options: RequestInit = {}) => {
